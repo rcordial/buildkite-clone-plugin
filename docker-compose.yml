@@ -1,11 +1,10 @@
-version: "3.5"
+version: '3'
 services:
-  lint:
-    image: buildkite/plugin-linter
-    command: ['--id', 'hasura/smooth-checkout']
-    volumes:
-      - .:/plugin:ro
   tests:
-    image: buildkite/plugin-tester:v3.0.1
+    image: buildkite/plugin-tester
     volumes:
-      - ".:/plugin"
+      - ".:/plugin:ro"
+  linter:
+    image: buildkite/plugin-linter
+    command: ['--id', 'first-aml/git-clone']
+    volumes:

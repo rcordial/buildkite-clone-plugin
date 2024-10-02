@@ -1,43 +1,9 @@
-name: Smooth Checkout
-description: All the things you need during a Buildkite checkout
-author: https://github.com/hasura
+name: Git Clone
+description: Simple git clone of an extra repository
+author: https://github.com/first-aml/
 requirements: []
 configuration:
   properties:
-    skip_checkout:
-      type: boolean
-    build_checkout_path:
+    repository:
       type: string
-    delete_checkout:
-      type: boolean
-    interpolate_checkout_path:
-      type: string
-    repos:
-      type: array
-      items:
-        type: object
-        properties:
-          config:
-            type: array
-            items:
-              type: object
-              properties:
-                url:
-                  type: string
-                ref:
-                  type: string
-                ssh_key_path:
-                  type: string
-                clone_flags:
-                  anyOf:
-                    - type: string
-                    - type: array
-                      items:
-                        type: string
-              additionalProperties: false
-            required:
-              - url
-        additionalProperties: false
-      required:
-        - config
   additionalProperties: false
